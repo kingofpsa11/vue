@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Gán dữ liệu hai chiều với v-model Vue.js - Allaravel.com</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container" id="app">        
+      <div class="row">
+        <h2 class="text-center col-md-12">Quản lý công việc</h2>        
+      </div>
+      <div class="row">
+        <div class="text-center col-md-12">
+          <span >Một ví dụ trong</span>
+          <a href="">Khóa học Vue.js miễn phí</a>
+        </div>
+      </div>
+      <div class="row">
+        <div class="card col-md-12">
+          <form action="">
+            <label for="">Them cong viec</label>
+            <div class="form-group row">
+              <label for="" class="col-md-2 col-form-label">Tieu de</label>
+              <div class="col-md-10">
+                <input type="text" class="form-control">
+              </div>
+            </div>
+            <div class="form-group row">
+                <label for="" class="col-md-2 col-form-label">Tieu de</label>
+                <div class="col-md-10">
+                  <textarea name="" id="" cols="30" rows="4" class="form-control"></textarea>                  
+                </div>
+            </div>
+            <div class="form-group row">
+              <label for="" class="col-md-2">Do uu tien</label>
+              <div class="col-md-10">
+                <select name="" id="" class=" form-control col-md-4">
+                  <option value="">Trung binh</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-row float-right">
+              <button type="submit" class="btn btn-success">Them</button>
+              <button class="btn btn-secondary">Xoa</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="card col-md-12">
+          <div class="row">
+            <label for="">Danh sach cong viec</label>
+          </div>
+          <div class="row">
+            <div class="col-md-2">2 cong viec</div>
+            <div class="col-md-10">
+              <div class="col-md-3 float-right">
+                <select name="" id="" class="custom-select">
+                  <option value="">Tat ca</option>
+                </select>
+              </div>
+              <div class="col-md-3 float-right">
+                <select name="" id="" class="custom-select">
+                  <option value="">Tat ca</option>
+                </select>
+            </div>
+          </div>
+          </div>
+          <div class="row">
+            <table class="table table-bordered">
+              <tr>
+                <th>#</th>
+                <th>Tieu de</th>
+                <th>Trang thai</th>
+                <th>Do uu tien</th>
+                <th>Action</th>
+              </tr>
+              <tr v-for="(item,index) in congviec" :class="{classdouutien }">
+                <td>{{ index + 1 }}</td>
+                <td>{{ item.title }}</td>
+                <td>{{ item.status }}</td>
+                <td>{{ item.douutien }}</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://unpkg.com/vue@2.5.16/dist/vue.js"></script>
+    <script type="text/javascript">
+        var vm = new Vue({
+          el: '#app',
+          data: {
+            classdouutien: '',
+            doUuTien: {
+              0: 'table-danger',
+              1: 'table-warning',
+              2: 'table-success',
+              4: 'table-dark'
+            },
+            congviec: [
+              {
+                title: 'Hoan thanh',
+                status: 1,
+                douutien: 0,
+              },
+              {
+                title: 'Viet ung dung ',
+                status: 1,
+                douutien: 2,
+              },
+              {
+                title: 'Kiem tra',
+                status: 0,
+                douutien:2,
+              }
+            ]
+          }
+        })
+    </script>
+</body>
+</html>
